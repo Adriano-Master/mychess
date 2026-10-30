@@ -1,0 +1,47 @@
+MyChess 0.1.0-alpha
+===================
+
+MyChess e uma reimplementacao moderna, em Rust, do Scid vs PC 4.27 (banco de
+dados, analise e estudo de partidas de xadrez). Projeto: 
+https://github.com/Adriano-Master/mychess
+
+COMO EXECUTAR
+-------------
+1. Extraia o pacote inteiro numa pasta onde voce tenha permissao de escrita
+   (nao rode de dentro do arquivo compactado).
+2. Abra o programa:
+     Windows: clique duas vezes em mychess.exe
+     Linux:   ./mychess   (veja as dependencias no README do projeto)
+3. Para abrir uma base: Arquivo > Abrir, e escolha um arquivo de
+   MyChess/Databases/ (Capablanca.si4, Carlsen.si4 ou o PGN
+   SicilianNajdorf6Bg5.pgn).
+
+MODO PORTATIL
+-------------
+O arquivo portable.flag, ao lado do executavel, liga o modo portatil: as
+preferencias, os dados e a pasta MyChess ficam DENTRO desta pasta, e o
+programa nao escreve nada fora dela. Apague o arquivo para usar a pasta
+pessoal do sistema (~/MyChess ou C:\Users\<nome>\MyChess).
+
+ENGINES (Stockfish etc.)
+------------------------
+O pacote Linux inclui o Stockfish 10 (MyChess/Engine/stockfish/, GPL v3, veja
+CREDITS.md). O pacote Windows NAO inclui engine. Veja MyChess/Engine/LEIA-ME.txt.
+
+AVISOS (ALFA)
+-------------
+- Esta e uma versao ALFA. Ela foi verificada por testes automatizados e por
+  poucos testes manuais; muita coisa nunca foi exercitada por uma pessoa.
+- O pacote para Windows foi gerado por cross-compilacao no Linux e NAO foi
+  executado em um Windows real. O pacote para Linux foi testado apenas
+  no ambiente de compilacao. Relatos de problemas sao bem-vindos:
+  https://github.com/Adriano-Master/mychess/issues
+- O executavel nao e assinado digitalmente. No Windows o SmartScreen pode
+  avisar: "Mais informacoes" > "Executar assim mesmo".
+- Faca copia das suas bases antes de edita-las.
+
+LICENCAS
+--------
+GPL-3.0-or-later (arquivo LICENSE). Dependencias: LICENSES-THIRD-PARTY.txt.
+Sons (AGPL-3.0-or-later), bases de dados e outros creditos: CREDITS.md.
+Licencas das pecas, fontes e icones: LICENSES-ASSETS.md.

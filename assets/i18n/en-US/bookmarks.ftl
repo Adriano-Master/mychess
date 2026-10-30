@@ -1,0 +1,11 @@
+bookmarks-title = Bookmarks
+bookmarks-empty = No bookmarks yet
+bookmarks-title-placeholder = Title of the selected entry
+bookmarks-up = Up
+bookmarks-down = Down
+bookmarks-indent = Indent
+bookmarks-outdent = Outdent
+bookmarks-new-folder = New folder
+bookmarks-add = Add
+bookmarks-delete = Delete
+bookmarks-go = Go to

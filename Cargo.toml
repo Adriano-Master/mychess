@@ -1,0 +1,178 @@
+# MyChess — reimplementação em Rust do Scid vs PC.
+# Arquitetura e regras de dependência entre crates: docs/arquitetura.md
+# (verificadas automaticamente por `cargo xtask arch`).
+
+[workspace]
+resolver = "3"
+members = ["crates/*", "xtask"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+license = "GPL-3.0-or-later"
+publish = false
+
+# ---------------------------------------------------------------------------
+# Dependências: versões fixadas num único lugar. Cada crate usa
+# `nome.workspace = true` e adiciona apenas as features de que precisa.
+# As externas listadas aqui já foram avaliadas (licença compatível, manutenção
+# ativa). Qualquer dependência NOVA exige justificativa — ver
+# .claude/rules/dependencias-e-licencas.md.
+# ---------------------------------------------------------------------------
+[workspace.dependencies]
+# Crates internas
+mychess-core = { path = "crates/mychess-core" }
+mychess-pgn = { path = "crates/mychess-pgn" }
+mychess-db = { path = "crates/mychess-db" }
+mychess-engine = { path = "crates/mychess-engine" }
+mychess-book = { path = "crates/mychess-book" }
+mychess-app = { path = "crates/mychess-app" }
+mychess-online = { path = "crates/mychess-online" }
+mychess-tablebase = { path = "crates/mychess-tablebase" }
+mychess-eboard = { path = "crates/mychess-eboard" }
+
+# Xadrez (GPL-3.0-or-later, mesmo autor do python-chess)
+shakmaty = "0.30.2"
+pgn-reader = "0.29.1"
+# Tablebases Syzygy (GPL-3.0-or-later; spec m8-8, ADR 0012). Sem a feature `mmap`
+# (exigiria `unsafe`); so `mychess-tablebase` depende dele. Dependencias transitivas
+# (arrayvec, bitflags, byteorder, once_cell, rustc-hash, tracing) ja estao no Cargo.lock.
+shakmaty-syzygy = "0.28.1"
+
+# Porta serial para tabuleiros eletrônicos (Novag Citrine; spec m8-10, ADR 0014).
+# MPL-2.0 (aceita em deny.toml). SEM a feature `libudev` (padrão): nenhuma
+# biblioteca de sistema; só `mychess-eboard` depende dele.
+serialport = { version = "4.10.1", default-features = false }
+
+# Erros e diagnóstico
+thiserror = "2.0.21"
+anyhow = "1.0.104"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+# Concorrência e assincronia
+tokio = { version = "1.54.0", default-features = false }
+rayon = "1.12.0"
+crossbeam-channel = "0.5.17"
+
+# Dados, arquivos e texto
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "1.1.8"
+memmap2 = "0.9.12"
+encoding_rs = "0.8.42"
+chardetng = "1.0.0"
+flate2 = "1.1.10"
+smallvec = "1.16.3"
+bitflags = "2.13.2"
+directories = "6.0.0"
+
+# Rede (somente mychess-online; spec m8-3, D1303/D1304/D1307, ADR 0010).
+# `reqwest` (MIT OR Apache-2.0) com rustls e SEM provedor criptografico embutido:
+# o provedor e o `ring` (via `rustls`), nao o `aws-lc-rs` padrao, cuja cadeia
+# (`aws-lc-sys`) carrega a licenca OpenSSL, incompativel com a GPLv3 (spec P2/R4).
+reqwest = { version = "0.13.5", default-features = false, features = ["rustls-no-provider", "http2", "form"] }
+rustls = { version = "0.23.4", default-features = false, features = ["ring", "std", "tls12"] }
+serde_json = "1.0.151"
+# PKCE do login OAuth (M8-3d, D3005): `ring` (Apache-2.0 AND ISC) ja e o provedor
+# do rustls; `zeroize` (Apache-2.0 OR MIT) apaga o token da memoria (D3006).
+ring = { version = "0.17.14", default-features = false, features = ["alloc"] }
+zeroize = "1.9.1"
+# Token no chaveiro do sistema (MIT OR Apache-2.0); so `mychess-online`.
+keyring = { version = "4.2.0", default-features = false }
+
+# Interface gráfica (somente mychess-gui)
+iced = { version = "0.14.0", features = ["canvas", "svg", "tokio", "advanced", "markdown", "selector"] }
+iced_aw = { version = "0.14.1", default-features = false }
+rfd = "0.17.2"
+# Saida de audio (somente mychess-gui, feature `audio`; spec m8-11, ADR 0013). So `cpal`
+# (sem decodificadores): o WAV e lido por leitor proprio; OGG/MP3 sao decodificados em mychess-app com `symphonia` (ADR 0015).
+# No Linux exige `libasound2-dev` (ALSA) para compilar.
+rodio = { version = "0.23.0", default-features = false, features = ["playback"] }
+# Decodificador de OGG Vorbis e MP3 dos pacotes de sons (somente mychess-app; spec m8-11b,
+# ADR 0015). MPL-2.0 (aceita em deny.toml), Rust puro, sem biblioteca de sistema.
+symphonia = { version = "0.6.1", default-features = false, features = ["ogg", "vorbis", "mp3", "wav", "pcm"] }
+fluent-bundle = "0.16.0"
+unic-langid = "0.9.6"
+# Só para testes da GUI: valida os arquivos .ftl (já é dependência de fluent-bundle).
+fluent-syntax = "0.12.0"
+# Idioma do sistema (MIT/Apache-2.0, sem dependências pesadas): `directories` não
+# fornece o locale. Só mychess-gui (spec m2-3, D140).
+sys-locale = "0.3.2"
+
+# Rasterizador de SVG (MPL-2.0) para a imagem PNG do tabuleiro (spec M7-4, D3723,
+# ADR 0016). Só mychess-app. `default-features = false` + `text` (coordenadas):
+# sem fontes do sistema, sem imagens raster embutidas. Já está no Cargo.lock via iced.
+resvg = { version = "0.45.1", default-features = false, features = ["text"] }
+
+# Linha de comando
+clap = { version = "4.6.7", features = ["derive"] }
+# Ctrl-C/SIGTERM/SIGHUP portátil (MIT/Apache-2.0) para cancelar operações longas da CLI (spec m3-5, D622).
+ctrlc = { version = "3.5.2", features = ["termination"] }
+
+# Testes e benchmarks (somente [dev-dependencies])
+proptest = "1.12.0"
+insta = "1.49.0"
+rstest = "0.28.0"
+criterion = "0.8.2"
+tempfile = "3.27.0"
+pretty_assertions = "1.4.1"
+iced_test = "0.14.0"
+
+# ---------------------------------------------------------------------------
+# Lints: valem para todos os crates (`[lints] workspace = true`).
+# No CI e no `cargo xtask ci`, avisos viram erros (-D warnings).
+# ---------------------------------------------------------------------------
+[workspace.lints.rust]
+unsafe_code = "deny"
+missing_docs = "warn"
+unreachable_pub = "warn"
+unused_qualifications = "warn"
+let_underscore_drop = "warn"
+non_ascii_idents = "deny"
+rust_2018_idioms = { level = "warn", priority = -1 }
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+# Grupo "restriction" (opt-in): o que é proibido em código de produção.
+unwrap_used = "warn"
+dbg_macro = "warn"
+todo = "warn"
+unimplemented = "warn"
+print_stdout = "warn"
+print_stderr = "warn"
+undocumented_unsafe_blocks = "warn"
+multiple_unsafe_ops_per_block = "warn"
+mem_forget = "warn"
+rc_mutex = "warn"
+mod_module_files = "warn"
+# Ruído do grupo "pedantic" que não compensa neste projeto.
+module_name_repetitions = "allow"
+must_use_candidate = "allow"
+missing_errors_doc = "allow"
+similar_names = "allow"
+struct_excessive_bools = "allow"
+
+# ---------------------------------------------------------------------------
+# Perfis
+# ---------------------------------------------------------------------------
+# Dependências otimizadas mesmo em debug: GUI (wgpu), geração de lances e
+# testes de perft ficam utilizáveis sem perder a depuração do nosso código.
+# Só tabelas de linhas (backtraces e panics com arquivo:linha): os executáveis
+# de teste passam de 500 MB com símbolos completos e já encheram o disco.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.release]
+lto = "thin"
+
+# Binários distribuídos aos usuários: `cargo build --profile dist`.
+[profile.dist]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+strip = "symbols"

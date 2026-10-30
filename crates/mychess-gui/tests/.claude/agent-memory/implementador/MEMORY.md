@@ -1,0 +1,1 @@
+- [iced text_editor blur on press](iced-text-editor-blur-on-press.md) — blur happens on press, buttons act on release; judge blur on release

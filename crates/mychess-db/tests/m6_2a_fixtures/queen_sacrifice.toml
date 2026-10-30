@@ -1,0 +1,26 @@
+format = "mychess-pattern"
+version = 1
+name = "Sacrifício de dama com mate (brancas)"
+description = "As brancas deixam a dama ser capturada (perda líquida de pelo menos 5) e dão mate em até 3 lances."
+
+[scope]
+min_move = 1
+max_move = 999
+hold = 1
+end_only = false
+ignore_colors = false
+
+[root]
+kind = "all"
+
+[[root.items]]
+kind = "result"
+results = ["white_wins"]
+
+[[root.items]]
+kind = "sacrifice"
+by = "white"
+roles = ["queen"]
+min_net = 5
+outcome = "mate"
+within = 3

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 06: o peão que se forma</title>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- peão -->
+  <g transform="translate(76 132) scale(3.6)" fill="#e8eaed">
+    <circle cx="50" cy="28" r="11"/>
+    <rect x="36" y="42" width="28" height="6" rx="3"/>
+    <path d="M40 48C40 62 34 68 30 78H70C66 68 60 62 60 48Z"/>
+    <rect x="26" y="78" width="48" height="8" rx="4"/>
+  </g>
+  <!-- capelo: o estudo -->
+  <path d="M256 60L414 120L256 180L98 120Z" fill="#7cc04a" stroke="#1b1d20" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M176 154V188C176 206 336 206 336 188V154L256 184Z" fill="#5fa032" stroke="#1b1d20" stroke-width="10" stroke-linejoin="round"/>
+  <!-- borla -->
+  <path d="M414 120V204" stroke="#e8eaed" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="414" cy="220" r="16" fill="#e8eaed"/>
+  <path d="M414 232V264" stroke="#e8eaed" stroke-width="12" stroke-linecap="round"/>
+</svg>

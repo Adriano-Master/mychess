@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 07: o M da curva de avaliação</title>
+  <defs>
+    <clipPath id="faixa"><rect x="76" y="404" width="360" height="36" rx="10"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- eixo do empate -->
+  <path d="M76 276H436" stroke="#e8eaed" stroke-opacity=".28" stroke-width="6" stroke-dasharray="2 16" stroke-linecap="round"/>
+  <!-- o M é uma curva de avaliação -->
+  <path d="M110 372V146L256 306L402 146V372" fill="none" stroke="#7cc04a" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- posição atual -->
+  <circle cx="256" cy="306" r="30" fill="#e8eaed" stroke="#1b1d20" stroke-width="12"/>
+  <!-- fileira de casas -->
+  <g clip-path="url(#faixa)">
+    <rect x="76" y="404" width="360" height="36" fill="#25282c"/>
+    <g fill="#e8eaed">
+      <rect x="76" y="404" width="45" height="36"/><rect x="166" y="404" width="45" height="36"/>
+      <rect x="256" y="404" width="45" height="36"/><rect x="346" y="404" width="45" height="36"/>
+    </g>
+  </g>
+</svg>

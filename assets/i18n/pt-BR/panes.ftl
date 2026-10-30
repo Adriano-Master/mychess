@@ -1,0 +1,11 @@
+pane-board = Tabuleiro
+pane-info = Informações da partida
+pane-notation = Notação
+pane-comment = Comentário
+notation-placeholder = A lista de lances aparecerá aqui.
+info-players = { $white } - { $black }
+info-event-line = { $event }, { $site }, { $date }, { $round }
+info-eco = ECO { $eco }
+info-result = { $result }
+pane-close = Fechar painel
+tab-detach = Separar em um painel novo

@@ -1,0 +1,32 @@
+- [Snapshots por impressao digital no iced_test](iced-test-snapshot-fingerprint.md) — comparar hashes de renders na mesma execucao, sem pixels nem imagens salvas
+- [Oraculo PGN e NAGs](pgn-writer-oracle-nags.md) — with_comments(false) do escritor mantem NAGs; alinhar opcoes ao comparar com a notacao
+- [Armadilhas de registros SI4 sinteticos](si4-record-test-gotchas.md) — tokens decimais, escritor PGN, captura propria rejeitada
+- [Notas de teste import/export do mychess-db](mychess-db-import-export-test-notes.md) — leitura em blocos de 1 MiB, gzip manual, ScidFlags no Stored, OR e filtro
+- [Notas dos testes m3_4a (slots/Clipbase)](mychess-app-m3-4a-slots-test-notes.md) — Rig, filtros so internos, EventDate sem ano, plies
+- [Notas dos testes m3_4b (lista de partidas GUI)](mychess-gui-m3-4b-test-notes.md) — helpers, sondagem de pixels, o que so da para testar por dentro
+- [Notas dos testes m3_4c (acoes da lista)](mychess-m3-4c-list-actions-test-notes.md) — jobs, botoes sem id, avisos, divergencias do Scid na ordenacao
+- [Notas dos testes m3_4d (copia entre bancos, arraste)](mychess-m3-4d-copy-drag-test-notes.md) — simulador novo perde hover, menu aberto engole clique, Esc+soltar seleciona
+- [Notas dos testes m3_4e (navegador)](mychess-m3-4e-browser-test-notes.md) — lista bloqueada sob o navegador, Task descartada na GUI, achados
+- [Notas dos testes mychess-cli/sort M3-5](mychess-cli-m3-5-test-notes.md) — flock vs fork, EventDate +-3 anos, progresso do import, divergencias Scid
+- [Notas dos testes m4_2 (XBoard)](mychess-engine-m4-2-xboard-test-notes.md) — janela de saida antiga, fake com info antes do pong, sem rstest
+- [Notas m4_1 hardening (engine UCI)](mychess-engine-m4-1-hardening-notes.md) — shutdown racy, proptest de sessao com tempo pausado
+- [Notas m3_6 (marcadores GUI)](mychess-gui-m3-6-bookmarks-test-notes.md) — aviso so no status apos shell.update, SI4 via dev-dep, Rig com prefs
+- [Notas m4_3 (engines no app)](mychess-app-m4-3-engines-test-notes.md) — fake binario, saves em voo, allow de lints em tests/
+- [Notas m4_4 (janela de análise, app)](mychess-app-m4-4-analysis-test-notes.md) — run sintética, linhas x cursor, bug rule 13
+- [Notas m4_3 GUI (dialogo Engines/editor/opcoes)](mychess-gui-m4-3-engines-test-notes.md) — view direta no Simulator, radios por id, Exited inalcancavel
+- [Notas m4_5 (barra/setas/semaforo, app)](mychess-app-m4-5-evalbar-test-notes.md) — Action::all sem BASE_NAMES, achados do cache e de inf
+- [Notas m4_4 GUI (painel de análise)](mychess-gui-m4-4-analysis-panel-test-notes.md) — cliques por bounds, tooltips inacessíveis, vazamento de teclas no About
+- [Notas m4_5 GUI (barra/semaforo/setas)](mychess-gui-m4-5-evalbar-test-notes.md) — pixels por diff, clique na ponta, bug do flip, conflito Cmd+Shift+L
+- [Notas m4_4 GUI (painel de análise)](mychess-gui-m4-4-analysis-test-notes.md) — ícones por Point, Hover espúrio, vazamento de teclas no Sobre
+- [Notas m2_6 GUI (paineis com x e abas)](mychess-gui-m2-6-panes-tabs-test-notes.md) — clique no centro da aba cai no x, arrasto real, mutacao em copia
+- [Notas m5_2 GUI (painel da arvore)](mychess-gui-m5-2-tree-panel-test-notes.md) — TreeRig drena Tasks, pick_list por posicao+CursorMoved, SI4 p/ Elo
+- [Notas m8_1 (jogo contra engine, app)](mychess-app-m8-1-play-test-notes.md) — tempo real nos eventos, FENs com xeque, mutacao em copia, fonte mudando junto
+- [Notas m8_3a (mychess-online, Lichess)](mychess-online-m8-3a-test-notes.md) — mutacao com target compartilhado contamina, sem rstest, fake chunked, CRLF no limite
+- [Notas m8_2a (torneio entre engines, app)](mychess-app-m8-2a-tournament-test-notes.md) — Sim puro, cycles=1, mutacao com backup, slug com ..
+- [Notas m8_3b (jogo online Lichess, app)](mychess-app-m8-3b-online-test-notes.md) — pump ao esperar pedidos, JSON duplicado, torneio em Loading fura o bloqueio
+- [Notas m8_1c (takeback/empate/Store clock, app)](mychess-app-m8-1c-test-notes.md) — gerador de partida quieta, livro responde sozinho, truncar x arredondar
+- [Notas m4_6b/m4_9/m4_10a (app)](mychess-app-m4-6b-m4-9-m4-10a-test-notes.md) — Bt do lote SI4, bug do skip no lote, line Some vazio
+- [Notas m5_7b (ECO, app+GUI)](mychess-m5-7b-eco-test-notes.md) — NewGame antes de jogar, filtro com navegador aberto, radios por ponto, barras 0x0
+- [Notas m5_2bc (Best Games/treino/Lock/abrir base)](mychess-m5-2bc-tree-best-train-lock-notes.md) — sem semente fixa, pick_list abre para cima, bug da selecao entre bases
+- [Notas m5_4b contrato (mascaras, app)](mychess-app-m5-4b-mask-contract-notes.md) — base de 1 jogo carrega no editor, alvo movel, MarkerRead fecha a arvore
+- [Notas m6_4_extra (tabela/graficos/rastreador, app)](mychess-app-m6-4-extra-test-notes.md) — rajadas de debounce, base fixada, R2, anos novos desmarcados

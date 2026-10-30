@@ -1,0 +1,67 @@
+[package]
+name = "mychess-gui"
+description = "MyChess desktop application (iced front-end)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "mychess_gui"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mychess"
+path = "src/main.rs"
+
+[dependencies]
+mychess-app.workspace = true
+mychess-core.workspace = true
+iced.workspace = true
+iced_aw = { workspace = true, features = ["menu"] }
+fluent-bundle.workspace = true
+unic-langid.workspace = true
+# Erases the typed token/password when the field is dropped (M8-9, D2602).
+zeroize.workspace = true
+sys-locale.workspace = true
+anyhow.workspace = true
+# Command line of the executable (spec M9-4); already used by `mychess-cli`.
+clap.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+# Inline storage for the one or two sprites/hidden squares of a move
+# animation (and the few fills of a square), built every frame.
+smallvec.workspace = true
+rfd.workspace = true
+# Audio output (spec M8-11, ADR 0013): only with the `audio` feature.
+rodio = { workspace = true, optional = true }
+
+[features]
+default = ["audio"]
+# Real sound output through rodio/cpal. Without it, or without an audio
+# device, the sounds are silent (the null sink of mychess-app).
+audio = ["dep:rodio"]
+
+[dev-dependencies]
+# Builds real `.si4` databases for the contract tests (dev only: the layering
+# check restricts normal dependencies).
+mychess-db.workspace = true
+# Builds the scores and log entries of the analysis panel tests (dev only).
+mychess-engine.workspace = true
+# Builds the game of the server the online panel shows, from JSON (dev only).
+mychess-online.workspace = true
+# The stub sources that feed the tablebase panel tests (dev only).
+mychess-tablebase = { workspace = true, features = ["testing"] }
+serde_json.workspace = true
+fluent-syntax.workspace = true
+iced_test.workspace = true
+tempfile.workspace = true
+proptest.workspace = true
+rstest.workspace = true
+# Runs the effects of the application (its `perform` needs a runtime) in tests.
+tokio = { workspace = true, features = ["rt", "time"] }
+pretty_assertions.workspace = true
+
+[lints]
+workspace = true

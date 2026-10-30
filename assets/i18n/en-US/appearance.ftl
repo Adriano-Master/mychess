@@ -1,0 +1,12 @@
+appearance-title = Appearance
+appearance-tab-theme = Theme
+appearance-tab-board = Board
+appearance-tab-pieces = Pieces
+appearance-tab-players = Players
+appearance-tab-changed = Changed, not applied yet
+appearance-section-mode = Mode
+appearance-apply = Apply
+appearance-footer-hint = The choices only take effect when you press Apply.
+appearance-sample-white = White player
+appearance-sample-black = Black player
+appearance-strips-hidden = The player strips are hidden.

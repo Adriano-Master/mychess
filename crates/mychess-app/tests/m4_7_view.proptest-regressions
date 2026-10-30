@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc b4d9c9ef5333b94a08ea3dceb3be40d1d19fc5cb3d5d4c85a15d3c96bcb384f7 # shrinks to comments = ["[%eval 0.0] [%emt 0:26:35]", "[%eval 0.0] [%emt 0:00:00]", "", "", "[%eval 0.0] [%emt 0:01:41]", "", "", "[%eval 10.0] [%emt 0:00:00]", "[%emt 0:11:17]", "", "[%emt 0:46:45]", "", "[%eval 0.0] [%emt 0:07:03]", "", "[%emt 1:06:39]"], kind = 3, cursor = 0, hl = false, iw = false, ib = false

@@ -1,0 +1,46 @@
+format = "mychess-pattern"
+version = 1
+name = "Personalizado"
+description = "Rei exposto sem dama."
+
+[scope]
+min_move = 1
+max_move = 999
+hold = 1
+end_only = false
+ignore_colors = false
+
+[root]
+kind = "all"
+
+[[root.items]]
+kind = "feature"
+feature = "exposed_king"
+side = "white"
+region = "anywhere"
+min = 1
+
+[[root.items]]
+kind = "any"
+
+[[root.items.items]]
+kind = "piece"
+side = "black"
+roles = ["queen"]
+region = { named = "black_half" }
+min = 0
+max = 0
+
+[[root.items.items]]
+kind = "status"
+status = "check"
+
+[[root.items]]
+kind = "not"
+
+[root.items.item]
+kind = "piece"
+side = "white"
+roles = ["queen"]
+region = "anywhere"
+min = 1

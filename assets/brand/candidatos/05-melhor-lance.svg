@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 05: o melhor lance</title>
+  <defs>
+    <clipPath id="tab"><rect x="76" y="76" width="360" height="360" rx="44"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- tabuleiro 4x4 -->
+  <g clip-path="url(#tab)">
+    <rect x="76" y="76" width="360" height="360" fill="#25282c"/>
+    <g fill="#3a3f47">
+      <rect x="166" y="76" width="90" height="90"/><rect x="346" y="76" width="90" height="90"/>
+      <rect x="76" y="166" width="90" height="90"/><rect x="256" y="166" width="90" height="90"/>
+      <rect x="166" y="256" width="90" height="90"/><rect x="346" y="256" width="90" height="90"/>
+      <rect x="76" y="346" width="90" height="90"/><rect x="256" y="346" width="90" height="90"/>
+    </g>
+  </g>
+  <!-- casa de destino realçada: duas casas acima e uma à direita -->
+  <rect x="166" y="166" width="90" height="90" fill="#7cc04a" fill-opacity=".28"/>
+  <!-- lance de cavalo em L -->
+  <path d="M121 391V211H176" fill="none" stroke="#7cc04a" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 174L244 211L168 248Z" fill="#7cc04a" stroke="#7cc04a" stroke-width="10" stroke-linejoin="round"/>
+  <!-- peça na origem -->
+  <circle cx="121" cy="391" r="30" fill="#e8eaed"/>
+  <circle cx="121" cy="391" r="12" fill="#1b1d20"/>
+</svg>

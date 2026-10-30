@@ -1,0 +1,72 @@
+# Statistics and graphs of the filter, rating graph (spec M6-4, D3392, M6-4d).
+# Scid: tcl/windows/stats.tcl, tcl/tools/graphs.tcl.
+action-toggle-stats-pane = Show or hide the statistics panel
+action-toggle-rating-pane = Show or hide the rating graph panel
+menu-stats = Statistics
+menu-stats-stats = Statistics
+menu-stats-graph-relative = Relative filter graph
+menu-stats-graph-absolute = Absolute filter graph
+menu-stats-rating-graph = Player ratings
+pane-filter-stats = Statistics
+pane-close-filter-stats = Close the statistics panel
+pane-rating-graph = Rating graph
+pane-close-rating-graph = Close the rating graph panel
+
+stats-label-all = All games
+stats-label-both = Both rated { $n }+
+stats-label-years = { $from } - { $to }
+stats-label-years-open = { $from } -
+stats-label-since = Since { $year }.01.01
+stats-col-criterion = Criterion
+stats-col-games = Games
+stats-col-white = 1-0
+stats-col-draw = =-=
+stats-col-black = 0-1
+stats-col-score = Score
+stats-skipped = { $n } entries of the index could not be read and are not counted.
+stats-opt-both = Both rated:
+stats-opt-years = Years:
+stats-defaults = Defaults
+stats-tab-table = Table
+stats-tab-relative = Relative graph
+stats-tab-absolute = Absolute graph
+stats-refresh = Refresh
+stats-stop = Stop
+stats-options = Options
+stats-no-base = No database is open.
+stats-computing = Computing...
+stats-filter-count = Filter: { $n } / { $m }
+stats-kind-decade = Decade
+stats-kind-year = Year
+stats-kind-rating = Rating
+stats-kind-moves = Moves
+stats-axis-min = From
+stats-axis-max = To
+stats-axis-step = Step
+stats-estimate = Estimate
+stats-show-dots = Show dots
+graph-title-relative = Frequency per 1000 games of the bin
+graph-title-absolute = Game frequency
+
+charts-notice-stats-failed = The statistics could not be computed.
+charts-notice-graph-failed = The graph could not be computed.
+charts-notice-rating-failed = The rating graph could not be computed.
+charts-notice-cancelled = Stopped. Press Refresh to compute again.
+charts-notice-too-many-players = At most 9 players fit in the rating graph.
+charts-notice-no-players = Add a player to see the rating graph.
+
+rating-no-players = No players. Add one below.
+rating-add-placeholder = Player name
+rating-add = Add
+rating-game-players = Players of the game
+rating-clear = Clear
+rating-refresh = Refresh
+rating-stop = Stop
+rating-options = Options
+rating-start-year = First year:
+rating-start-elo = Lowest rating:
+rating-only-filter = Only games in the filter
+rating-show-dots = Show dots
+rating-no-base = No database is open.
+rating-empty = None of these players has rated games in the database.
+rating-skipped = { $n } entries of the index could not be read and are not counted.

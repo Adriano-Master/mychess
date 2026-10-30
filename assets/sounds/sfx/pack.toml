@@ -1,0 +1,22 @@
+# MyChess sound pack manifest (spec M8-11b, D2900).
+#   name, author, license (SPDX), description: metadata shown in the "Sounds" window.
+#   [cues]: maps an event key (lowercase) to a file in this directory.
+#     Keys: move, capture, check, checkmate, clock (low time), end (game end).
+#     Extra keys (defeat, draw, notify) are reserved for future use.
+#   Events not listed fall back to the chain in D2905.
+name = "Lichess SFX"
+author = "Enigmahack"
+license = "AGPL-3.0-or-later"
+description = "Short, clean sound effects for moves, captures, checks and game end. From the Lichess project."
+
+[cues]
+move = "Move.ogg"
+capture = "Capture.ogg"
+check = "Check.ogg"
+# Upstream Checkmate.ogg is a Git symlink to Check.ogg; mapped here instead of duplicated.
+checkmate = "Check.ogg"
+clock = "LowTime.ogg"
+end = "Victory.ogg"
+defeat = "Defeat.ogg"
+draw = "Draw.ogg"
+notify = "GenericNotify.ogg"

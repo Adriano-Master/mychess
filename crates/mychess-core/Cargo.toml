@@ -1,0 +1,36 @@
+[package]
+name = "mychess-core"
+description = "Chess domain model for MyChess: positions, moves, notation and the game tree."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+shakmaty.workspace = true
+thiserror.workspace = true
+# Optional: only the `test-support` feature (shared proptest strategies).
+proptest = { workspace = true, optional = true }
+
+[features]
+default = []
+# Exposes `mychess_core::test_support` (proptest strategies). For tests only.
+test-support = ["dep:proptest"]
+
+[dev-dependencies]
+proptest.workspace = true
+rstest.workspace = true
+pretty_assertions.workspace = true
+criterion.workspace = true
+
+[[bench]]
+name = "eco"
+harness = false
+
+[[bench]]
+name = "position"
+harness = false
+
+[lints]
+workspace = true

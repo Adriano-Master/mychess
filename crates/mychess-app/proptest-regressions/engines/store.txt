@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 58fb9a28f6fa790eaa80fc7ba5d8323ef2e9c367c5178241849366a8c5c65dc7 # shrinks to drafts = [EngineDraft { name: "\0", command: "x", args: [], working_dir: None, protocol: Uci, elo: None, url: None, last_used: Some(-1), options: [], multipv: 1, low_priority: None }], keys = [], removals = []

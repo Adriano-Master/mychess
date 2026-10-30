@@ -1,0 +1,48 @@
+---
+source: crates/mychess-pgn/tests/m7_4a_html.rs
+expression: document(&symbolic())
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MyChess export</title>
+<style>
+body { font-family: sans-serif; max-width: 52em; margin: 1em auto; }
+article.game { margin-bottom: 2em; }
+header.gh { text-align: center; }
+div.moves { line-height: 1.5; }
+div.var { margin-left: 1.5em; color: #333; }
+div.var:not(.ind) { margin-left: 0; display: inline; }
+span.c { color: #006; font-style: italic; }
+figure.dg { margin: 0.5em 0; }
+</style>
+</head>
+<body>
+<article class="game">
+<header class="gh">
+<h2>Smith &amp; &lt;Co&gt; (2500) &ndash; O&#39;Neil &quot;Z&quot;</h2>
+<p>A&amp;B &lt;Open&gt; &quot;Q&quot; &#39;x&#39; (Round 3) &middot; Rio_de $Janeiro % # &middot; 2024.05.01 &middot; 1-0 &middot; B20</p>
+</header>
+<div class="moves">
+<b>1.e4!</b> <span class="c">{Good &lt;b&gt;move&lt;/b&gt; &amp; ~ ^ \ ok}</span> <b>1...c5</b> <figure class="dg"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" data-flip="false"><title>rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2</title><rect width="1" height="1"/></svg></figure>
+<div class="var ind">(1...e5 <span class="c">{a &quot;var&quot; &lt;/script&gt; ]]&gt;}</span> 2.Nf3 <div class="var ind">(2.f4?!)</div>
+2...Nc6)</div>
+<b>2.Nf3</b> <b>d6</b> 
+</div>
+<p class="res"><b>1-0</b></p>
+</article>
+<article class="game">
+<header class="gh">
+<h2>? &ndash; ?</h2>
+<p>Endgame &middot; ???? &middot; *</p>
+</header>
+<p class="fen">FEN: 4k3/8/8/8/8/8/4P3/4K3 w - - 0 1</p>
+<figure class="dg"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" data-flip="false"><title>4k3/8/8/8/8/8/4P3/4K3 w - - 0 1</title><rect width="1" height="1"/></svg></figure>
+<div class="moves">
+<b>1.e4</b> <b>Kd7</b> <b>2.e5</b> 
+</div>
+<p class="res"><b>*</b></p>
+</article>
+</body>
+</html>

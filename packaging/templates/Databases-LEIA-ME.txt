@@ -1,0 +1,14 @@
+MyChess/Databases
+=================
+
+Bases de partidas que acompanham este pacote (veja CREDITS.md):
+
+- Capablanca.si4 (+ .sg4, .sn4): 599 partidas de Capablanca, com anotacoes
+  de avaliacao geradas por engine. Os tres arquivos andam juntos.
+- Carlsen.si4 (+ .sg4, .sn4): 7818 partidas de Magnus Carlsen. Os tres
+  arquivos andam juntos.
+- SicilianNajdorf6Bg5.pgn: 33298 partidas da Siciliana Najdorf, linha
+  6.Bg5 (a linha principal classica), em PGN.
+
+Abra com Arquivo > Abrir. O MyChess nunca apaga nem sobrescreve o que esta
+nesta pasta. Faca copia antes de editar uma base.

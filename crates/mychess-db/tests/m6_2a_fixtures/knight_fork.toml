@@ -1,0 +1,27 @@
+format = "mychess-pattern"
+version = 1
+name = "Garfo de cavalo (brancas)"
+description = "Um cavalo branco ataca duas peças que valem a pena (ou o rei), sem poder ser capturado com ganho."
+
+[scope]
+min_move = 1
+max_move = 999
+hold = 1
+end_only = false
+ignore_colors = false
+
+[root]
+kind = "relation"
+relation = "forks"
+when = "actor_just_moved"
+new_this_move = true
+min_targets = 2
+
+[root.actor]
+side = "white"
+roles = ["knight"]
+region = "anywhere"
+
+[root.target]
+roles = []
+region = "anywhere"

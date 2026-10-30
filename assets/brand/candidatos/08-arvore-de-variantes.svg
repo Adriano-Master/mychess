@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 08: a árvore de variantes</title>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- ramos explorados -->
+  <g fill="none" stroke="#3a3f47" stroke-width="12" stroke-linecap="round">
+    <path d="M256 420L132 330L84 236"/><path d="M132 330L168 236"/>
+    <path d="M256 420L380 330L428 236"/><path d="M380 330L344 236"/>
+    <path d="M168 236L196 168"/><path d="M344 236L316 168"/>
+  </g>
+  <!-- linha principal: o melhor caminho -->
+  <path d="M256 420L256 322L256 232L256 150" fill="none" stroke="#7cc04a" stroke-width="20" stroke-linecap="round"/>
+  <!-- nós como casas do tabuleiro, alternando claro e escuro -->
+  <g stroke="#1b1d20" stroke-width="8" stroke-linejoin="round">
+    <rect x="224" y="388" width="64" height="64" rx="10" fill="#e8eaed"/>
+    <rect x="102" y="300" width="60" height="60" rx="9" fill="#2e3238" stroke="#5a616b"/>
+    <rect x="350" y="300" width="60" height="60" rx="9" fill="#2e3238" stroke="#5a616b"/>
+    <rect x="226" y="292" width="60" height="60" rx="9" fill="#e8eaed"/>
+    <rect x="62" y="206" width="44" height="44" rx="8" fill="#e8eaed"/>
+    <rect x="146" y="206" width="44" height="44" rx="8" fill="#e8eaed"/>
+    <rect x="322" y="206" width="44" height="44" rx="8" fill="#e8eaed"/>
+    <rect x="406" y="206" width="44" height="44" rx="8" fill="#e8eaed"/>
+    <rect x="234" y="202" width="44" height="44" rx="8" fill="#2e3238" stroke="#5a616b"/>
+    <rect x="176" y="150" width="40" height="40" rx="8" fill="#2e3238" stroke="#5a616b"/>
+    <rect x="296" y="150" width="40" height="40" rx="8" fill="#2e3238" stroke="#5a616b"/>
+  </g>
+  <!-- o nó final: a melhor posição, coroada -->
+  <circle cx="256" cy="110" r="52" fill="#7cc04a" stroke="#1b1d20" stroke-width="10"/>
+  <path d="M232 128L228 92L244 108L256 86L268 108L284 92L280 128Z" fill="#1b1d20" stroke="#1b1d20" stroke-width="5" stroke-linejoin="round"/>
+</svg>

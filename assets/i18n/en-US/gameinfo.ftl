@@ -1,0 +1,12 @@
+gameinfo-event = Event
+gameinfo-round = Round { $round }
+gameinfo-start-of-game = Start of game
+gameinfo-end-of-game = End of game
+gameinfo-start-of-line = Start of line
+gameinfo-end-of-line = End of line
+gameinfo-next = Next
+gameinfo-hidden = hidden
+gameinfo-length = Length
+gameinfo-material = Material
+gameinfo-variations = Variations
+gameinfo-exit-variation = (Var)

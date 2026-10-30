@@ -1,0 +1,8 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc e311b00949eb9b90d0b0c88a867e7697977965b74ba676dbf4fc9f3780eaf983 # shrinks to mut specs = [Spec { label: "", white: "alpha", black: "alpha", event: "alpha", site: "Paris FRA", round: "0", date: (Some(1990), None, None), event_date: (None, None, None), eco: None, result: White, plies: 0, welo: 0, belo: 0, vars: 0, comments: 0, deleted: false }, Spec { label: "", white: "alpha", black: "alpha", event: "alpha", site: "Paris FRA", round: "0", date: (None, None, None), event_date: (Some(1990), None, None), eco: Some("A00"), result: White, plies: 0, welo: 0, belo: 0, vars: 0, comments: 0, deleted: false }], key_idx = [16, 7], reverse = false
+cc b5f337665c2f997bbe8796ed3a16b0eb5c668dc94d4d551789441f51f3f70a34 # shrinks to mut specs = [Spec { label: "", white: "alpha", black: "alpha", event: "alpha", site: "Paris FRA", round: "0", date: (None, None, None), event_date: (None, None, None), eco: None, result: Unknown, plies: 0, welo: 1400, belo: 1300, vars: 0, comments: 0, deleted: false }, Spec { label: "", white: "alpha", black: "alpha", event: "alpha", site: "Paris FRA", round: "0", date: (None, None, None), event_date: (None, None, None), eco: None, result: Draw, plies: 0, welo: 1400, belo: 1300, vars: 0, comments: 0, deleted: false }], key_idx = [8], reverse = false

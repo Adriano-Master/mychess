@@ -1,0 +1,42 @@
+[package]
+name = "mychess-online"
+description = "Lichess Board API client for MyChess: models, NDJSON streams, rate-limited HTTP client, token storage and a fake server for tests."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = ["keyring-store"]
+# `KeyringStore`: the token in the system keychain (spec m8-3, D1307).
+keyring-store = ["dep:keyring"]
+# Exposes `mychess_online::testing` (local fake Lichess server). For tests only
+# (also used by the `mychess-app` tests through `[dev-dependencies]`).
+testing = ["tokio/net", "tokio/io-util"]
+
+[dependencies]
+mychess-core.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+directories.workspace = true
+tempfile.workspace = true
+reqwest.workspace = true
+rustls.workspace = true
+ring.workspace = true
+zeroize.workspace = true
+keyring = { workspace = true, optional = true, features = ["v1"] }
+tokio = { workspace = true, features = ["rt", "sync", "time", "macros", "net", "io-util"] }
+
+[dev-dependencies]
+# Self dev-dependency: turns the `testing` feature on for `cargo test`.
+mychess-online = { workspace = true, features = ["testing"] }
+tokio = { workspace = true, features = ["rt-multi-thread", "test-util"] }
+proptest.workspace = true
+tempfile.workspace = true
+pretty_assertions.workspace = true
+
+[lints]
+workspace = true

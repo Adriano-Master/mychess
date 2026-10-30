@@ -1,0 +1,72 @@
+# Estatísticas e gráficos do filtro, gráfico de rating (spec M6-4, D3392, M6-4d).
+# Scid: tcl/windows/stats.tcl, tcl/tools/graphs.tcl.
+action-toggle-stats-pane = Mostrar ou ocultar o painel de estatísticas
+action-toggle-rating-pane = Mostrar ou ocultar o painel do gráfico de rating
+menu-stats = Estatísticas
+menu-stats-stats = Estatísticas
+menu-stats-graph-relative = Gráfico de filtro relativo
+menu-stats-graph-absolute = Gráfico de filtro absoluto
+menu-stats-rating-graph = Rating dos jogadores
+pane-filter-stats = Estatísticas
+pane-close-filter-stats = Fechar o painel de estatísticas
+pane-rating-graph = Gráfico de rating
+pane-close-rating-graph = Fechar o painel do gráfico de rating
+
+stats-label-all = Todos os jogos
+stats-label-both = Ambos com rating { $n }+
+stats-label-years = { $from } - { $to }
+stats-label-years-open = { $from } -
+stats-label-since = Desde { $year }.01.01
+stats-col-criterion = Critério
+stats-col-games = Jogos
+stats-col-white = 1-0
+stats-col-draw = =-=
+stats-col-black = 0-1
+stats-col-score = Pontuação
+stats-skipped = { $n } entradas do índice não puderam ser lidas e não foram contadas.
+stats-opt-both = Ambos com rating:
+stats-opt-years = Anos:
+stats-defaults = Padrões
+stats-tab-table = Tabela
+stats-tab-relative = Gráfico relativo
+stats-tab-absolute = Gráfico absoluto
+stats-refresh = Atualizar
+stats-stop = Parar
+stats-options = Opções
+stats-no-base = Nenhuma base está aberta.
+stats-computing = Calculando...
+stats-filter-count = Filtro: { $n } / { $m }
+stats-kind-decade = Década
+stats-kind-year = Ano
+stats-kind-rating = Rating
+stats-kind-moves = Lances
+stats-axis-min = De
+stats-axis-max = Até
+stats-axis-step = Passo
+stats-estimate = Estimar
+stats-show-dots = Mostrar pontos
+graph-title-relative = Frequência por mil jogos da faixa
+graph-title-absolute = Frequência dos jogos
+
+charts-notice-stats-failed = Não foi possível calcular as estatísticas.
+charts-notice-graph-failed = Não foi possível calcular o gráfico.
+charts-notice-rating-failed = Não foi possível calcular o gráfico de rating.
+charts-notice-cancelled = Interrompido. Use Atualizar para calcular de novo.
+charts-notice-too-many-players = O gráfico de rating comporta no máximo 9 jogadores.
+charts-notice-no-players = Inclua um jogador para ver o gráfico de rating.
+
+rating-no-players = Nenhum jogador. Inclua um abaixo.
+rating-add-placeholder = Nome do jogador
+rating-add = Incluir
+rating-game-players = Jogadores da partida
+rating-clear = Limpar
+rating-refresh = Atualizar
+rating-stop = Parar
+rating-options = Opções
+rating-start-year = Ano inicial:
+rating-start-elo = Menor rating:
+rating-only-filter = Só partidas do filtro
+rating-show-dots = Mostrar pontos
+rating-no-base = Nenhuma base está aberta.
+rating-empty = Nenhum destes jogadores tem partidas com rating na base.
+rating-skipped = { $n } entradas do índice não puderam ser lidas e não foram contadas.

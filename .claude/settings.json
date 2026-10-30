@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(cargo check *)",
+      "Bash(cargo build *)",
+      "Bash(cargo test *)",
+      "Bash(cargo nextest *)",
+      "Bash(cargo clippy *)",
+      "Bash(cargo fmt *)",
+      "Bash(cargo doc *)",
+      "Bash(cargo tree *)",
+      "Bash(cargo metadata *)",
+      "Bash(cargo xtask *)",
+      "Bash(cargo run *)",
+      "Bash(cargo bench *)",
+      "Bash(cargo deny *)",
+      "Bash(cargo insta *)",
+      "Bash(cargo llvm-cov *)",
+      "Bash(cargo --version)",
+      "Bash(rustc --version)",
+      "Bash(rustup show *)",
+      "Bash(rustfmt *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git ls-files *)",
+      "Bash(git blame *)",
+      "Read(~/.cargo/registry/**)",
+      "WebFetch(domain:docs.rs)",
+      "WebFetch(domain:doc.rust-lang.org)",
+      "WebFetch(domain:rust-lang.github.io)",
+      "WebFetch(domain:crates.io)",
+      "WebFetch(domain:book.iced.rs)",
+      "WebFetch(domain:www.chessprogramming.org)"
+    ],
+    "ask": [
+      "Bash(cargo add *)",
+      "Bash(cargo remove *)",
+      "Bash(cargo update *)",
+      "Bash(cargo install *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git checkout *)",
+      "Bash(git restore *)",
+      "Bash(git clean *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)"
+    ],
+    "deny": [
+      "Edit(/reference/**)",
+      "Bash(cargo publish *)"
+    ]
+  },
+  "env": {
+    "RUST_BACKTRACE": "1"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/proteger-referencia.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/formatar-rust.sh\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

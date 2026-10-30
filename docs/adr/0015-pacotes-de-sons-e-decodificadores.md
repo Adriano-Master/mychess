@@ -1,0 +1,30 @@
+# ADR 0015: Pacotes de sons e decodificadores OGG/MP3 (`symphonia`)
+
+- **Status:** proposta pelo orquestrador a pedido do dono (2026-10-27); revertível. Especificação: `docs/specs/m8-11b-pacotes-de-sons.md` (D2900-D2949). Complementa a [ADR 0013](0013-audio-rodio.md) (revisa o item 1 e a alternativa "arquivos CC0 embutidos").
+
+## Contexto
+
+A ADR 0013 escolheu sons sintetizados e um leitor próprio de WAV, deixando os decodificadores de fora **por minimalismo, não por impedimento técnico**. O dono quer o contrário: um **diretório padrão de sons**, organizado em **pacotes** que o usuário escolhe na interface. Os pacotes livres que existem (os do Lichess feitos por Enigmahack: `sfx`, `nes`, `futuristic`, `piano`) vêm em **OGG Vorbis e MP3**, não em WAV. OGG/MP3 também são os formatos mais comuns para quem quiser criar o próprio pacote.
+
+## Decisão
+
+1. **Decodificar com `symphonia`** (MPL-2.0; Rust puro; sem biblioteca de sistema), com `default-features = false` e só `features = ["ogg", "vorbis", "mp3", "wav", "pcm"]`. A decodificação fica em `mychess-app::sound` (pura, testável sem placa de som); a GUI continua só tocando amostras (`rodio` sem decodificadores, ADR 0013 item 1 inalterado nesse ponto). O leitor próprio de WAV **permanece** como primeira opção para `.wav` (já testado e com limites), e o `symphonia` cobre `.ogg` e `.mp3`.
+2. **Entrada não confiável.** O arquivo de som é entrada externa (pacote do usuário). Limites obrigatórios: arquivo ≤ 8 MiB; duração ≤ 30 s; amostras decodificadas ≤ o teto da pasta (64 MiB, D2806); taxa 8 000-192 000 Hz; ≤ 2 canais; decodificação em `spawn_blocking` dentro de `catch_unwind` (um *panic* do decodificador vira "arquivo descartado", como no Syzygy, ADR 0012). Nenhum arquivo ruim derruba o app nem impede os demais.
+3. **Pacotes = diretórios.** Um pacote é um diretório com os arquivos nomeados por evento (nomes do Scid, sem diferenciar caixa, qualquer extensão `wav`/`ogg`/`mp3`) e um `pack.toml` opcional (nome, autor, licença, mapa evento → arquivo). Há duas origens: **embutidos** (de `assets/sounds/<pacote>/`, compilados no binário com `include_bytes!`, como as fontes: funciona sem instalador) e **do usuário** (`<dados do usuário>/sounds/<pacote>/`, por `directories::ProjectDirs`). A interface lista os dois e o usuário só escolhe.
+4. **Formato dos pacotes embutidos: OGG Vorbis, sem conversão.** Os arquivos entram exatamente como o autor os publicou (sem obra derivada, sem perda de qualidade, 30-40 % menores que o MP3 equivalente), com o `CREDITS`/licença de cada pacote ao lado. MP3 é aceito nos pacotes do usuário, mas tem atraso de codificador (~25 ms de silêncio no início), ruim para som de lance; por isso não é o formato dos nossos.
+5. **Licença dos assets: AGPL-3.0-or-later aceita para dados de áudio, embutidos no binário.** Os conjuntos `sfx`, `nes`, `futuristic` e `piano` são **AGPLv3+** (Enigmahack, listados no `COPYING.md` do lila). Os arquivos **são embutidos** no executável por `include_bytes!` (`sound/bundled.rs`), então quem distribui o binário distribui uma obra combinada com material AGPLv3+; não se trata de dados apenas carregados em tempo de execução. A combinação GPLv3 + AGPLv3 é permitida: o §13 da GPLv3 e o §13 da AGPLv3 autorizam ligar obras sob as duas licenças, e o resultado fica sujeito, na parte AGPL, às condições da AGPLv3 (o MyChess não é serviço de rede, então a cláusula de acesso remoto não tem efeito prático, mas a licença dos arquivos segue valendo). Consequências: (a) os `CREDITS.md` de cada pacote e a seção Sons de `assets/LICENSES.md` **devem acompanhar o binário/instalador** (tarefa do empacotamento, M9: instalador e página "Sobre" com o aviso de licença e a oferta do código-fonte); (b) esta decisão **depende da confirmação do ADR 0004**: se o dono do projeto escolher uma licença sem a ponte GPLv3↔AGPLv3, os quatro pacotes embutidos precisam sair do binário (ficam só os do usuário e o sintetizado). Acrescentar `AGPL-3.0-or-later` à lista de licenças de **assets** aceitas em `.claude/rules/dependencias-e-licencas.md` (só para `assets/`; **não** para dependências de código). Ficam **de fora**: `lisp` (CC BY-NC-SA, "não comercial" é incompatível), `standard`, `robot`, `woodland`, `instrument`, `other` e `music`/`speech` (sem licença livre confirmada). O pacote **Padrão (sintetizado)** continua sendo o inicial.
+6. **Dependência `symphonia`**: licença MPL-2.0 já está em `deny.toml` (`serialport`, ADR 0014); copyleft por arquivo, compatível com GPL-3.0-or-later; mantida e amplamente usada (é o decodificador do `rodio`); Linux/Windows/macOS sem biblioteca de sistema; `default-features = false` limita o peso ao Vorbis/MP3/WAV (custo esperado: algumas centenas de KB no binário e poucos segundos de compilação; medir e registrar na spec).
+
+## Alternativas consideradas
+
+- **`lewton` (Vorbis, MIT/Apache) + `minimp3`/`minimp3_fixed` (MP3):** licenças mais permissivas, mas são dois crates, e o MP3 traz código C (`cc`), contra a regra de preferir Rust puro (`multiplataforma.md`).
+- **Decodificar na GUI via `rodio` com `vorbis`/`mp3`:** põe entrada não confiável fora da camada testável e impede o teste sem placa de som.
+- **Converter os pacotes para WAV no repositório:** WAV não comprimido é ~10× maior que OGG; a conversão é obra derivada e perde a vantagem de manter o arquivo original do autor.
+- **Manter só WAV e pedir ao usuário que converta:** péssima experiência; quase ninguém tem pacotes em WAV.
+- **Pacotes só na pasta de dados do usuário, sem embutir:** o app novo ficaria mudo até o usuário copiar arquivos; o instalador (M9) ainda não existe.
+
+## Consequências
+
+- Novo item em `assets/LICENSES.md` por pacote (arquivo, URL, autor, SPDX) **antes** de commitar os arquivos.
+- `cargo xtask ci` passa a cobrir os decodificadores com arquivos pequenos de teste gerados por nós (nunca os do Lichess em fixtures de teste).
+- Superfície de ataque maior que o leitor de WAV: tratada pelos limites e pelo `catch_unwind` do item 2, com testes de arquivo truncado/corrompido/bomba de descompressão.

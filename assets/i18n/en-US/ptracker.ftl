@@ -1,0 +1,35 @@
+# Piece tracker (spec M6-4, D3392, M6-4d). Scid: tcl/tools/ptracker.tcl.
+action-toggle-piece-tracker-pane = Show or hide the piece tracker panel
+menu-stats-piece-tracker = Piece tracker
+pane-piece-tracker = Piece tracker
+pane-close-piece-tracker = Close the piece tracker panel
+
+ptracker-notice-failed = The piece tracker could not count the games.
+ptracker-notice-not-a-piece = That square does not start with a piece.
+ptracker-color-black = Black
+ptracker-color-red = Red
+ptracker-color-yellow = Yellow
+ptracker-color-cyan = Cyan
+ptracker-color-blue = Blue
+ptracker-color-xblack = Black (inverted)
+ptracker-color-xred = Red (inverted)
+ptracker-color-xyellow = Yellow (inverted)
+ptracker-color-xcyan = Cyan (inverted)
+ptracker-color-xblue = Blue (inverted)
+ptracker-pick-hint = Left click: one piece. Right click: also its sisters. Double click: update.
+ptracker-hover = { $square }: { $count } ({ $percent }%)  { $position }/64
+ptracker-stat = Statistic:
+ptracker-mode-games = % of games with a move to the square
+ptracker-mode-time = % of time on each square
+ptracker-moves = Moves:
+ptracker-moves-to = to
+ptracker-color = Color:
+ptracker-update = Update
+ptracker-stop = Stop
+ptracker-no-base = No database is open.
+ptracker-nothing-yet = Press Update to count.
+ptracker-empty-filter = The filter is empty.
+ptracker-counted = { $used } of { $games } games followed.
+ptracker-skipped = { $n } games were left out (own start position, too short or unreadable).
+ptracker-interrupted = Stopped: the counts are partial.
+ptracker-ranking = Squares by count

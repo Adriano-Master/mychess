@@ -1,0 +1,11 @@
+bookmarks-title = Marcadores
+bookmarks-empty = Ainda não há marcadores
+bookmarks-title-placeholder = Título da entrada selecionada
+bookmarks-up = Subir
+bookmarks-down = Descer
+bookmarks-indent = Recuar
+bookmarks-outdent = Avançar
+bookmarks-new-folder = Nova pasta
+bookmarks-add = Adicionar
+bookmarks-delete = Excluir
+bookmarks-go = Ir

@@ -1,0 +1,23 @@
+# MyChess engine list
+next_id = 2
+version = 1
+
+[[engine]]
+args = []
+command = "/bin/a"
+id = 0
+multipv = 1
+name = "A one"
+options = []
+protocol = "uci"
+working_dir = "/bin"
+
+[[engine]]
+args = []
+command = "b"
+id = 1
+multipv = 1
+name = "B"
+options = []
+protocol = "xboard"
+working_dir = "."

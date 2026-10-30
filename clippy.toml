@@ -1,0 +1,23 @@
+# Testes podem usar unwrap/expect/dbg!/println! livremente.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-dbg-in-tests = true
+allow-print-in-tests = true
+
+# Aplicação, não biblioteca publicada: o clippy pode sugerir mudanças de API pública.
+avoid-breaking-exported-api = false
+
+# Termos do domínio que podem aparecer em docs sem crases (`..` mantém a lista padrão).
+doc-valid-idents = [
+    "..",
+    "MyChess",
+    "Scid",
+    "PolyGlot",
+    "XBoard",
+    "WinBoard",
+    "MultiPV",
+    "Chess960",
+    "Syzygy",
+    "Gaviota",
+    "Novag",
+]

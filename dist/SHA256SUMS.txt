@@ -1,0 +1,2 @@
+01337284b7ee35542d21efc689751e1bc1d55b06e5630ec62432a16b30bf7660  MyChess-0.1.0-alpha-linux-x86_64.tar.gz
+b1afde0bdce10d15855ea7b5a9ac0964ca0fea1c9b181ccf19c9314f155b4555  MyChess-0.1.0-alpha-windows-x86_64.zip

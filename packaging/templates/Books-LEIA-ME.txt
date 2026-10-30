@@ -1,0 +1,8 @@
+MyChess/Books
+=============
+
+Coloque aqui livros de abertura no formato Polyglot (.bin). Esta pasta esta
+vazia de proposito: nenhum livro acompanha o MyChess.
+
+Para usar um livro: abra o painel de livros do MyChess e escolha o arquivo
+.bin desta pasta.

@@ -1,0 +1,11 @@
+# `cargo xtask <tarefa>`: automação portável (Linux, Windows, macOS) em Rust,
+# no lugar de scripts shell/Makefile. Lista de tarefas: `cargo xtask help`.
+[alias]
+xtask = "run --quiet --package xtask --"
+
+# Os testes de interface (`iced_test`) usam o renderizador por software
+# (tiny-skia). Com o padrão (wgpu/Vulkan) cada teste abre um dispositivo de GPU
+# e, em paralelo, o driver trava de forma intermitente (processo preso a 100% de
+# um núcleo). Vale só para o simulador de testes: o app usa `ICED_BACKEND`.
+[env]
+ICED_TEST_BACKEND = { value = "tiny-skia", force = false }

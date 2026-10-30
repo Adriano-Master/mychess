@@ -1,0 +1,12 @@
+gameinfo-event = Evento
+gameinfo-round = Rodada { $round }
+gameinfo-start-of-game = Início da partida
+gameinfo-end-of-game = Fim da partida
+gameinfo-start-of-line = Início da linha
+gameinfo-end-of-line = Fim da linha
+gameinfo-next = Próximo
+gameinfo-hidden = oculto
+gameinfo-length = Tamanho
+gameinfo-material = Material
+gameinfo-variations = Variantes
+gameinfo-exit-variation = (Var)

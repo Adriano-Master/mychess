@@ -1,0 +1,13 @@
+---
+source: crates/mychess-pgn/tests/pgn_write.rs
+expression: "render(&g, &o)"
+---
+Carlsen, M  (2850)   --   Nakamura, H
+Club  (Round 3)  Oslo  2020.02  1/2-1/2
+
+	   1.	e4          	e5
+    (1... c5)
+	   2.	Nc3
+    (2. Nf3 {Develops.})
+	   2.	...        	Nc6
+1/2-1/2

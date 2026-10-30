@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 04: cavalo e barra de avaliação</title>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- barra de avaliação: vantagem das brancas -->
+  <rect x="408" y="84" width="40" height="344" rx="20" fill="#2e3238"/>
+  <clipPath id="barra"><rect x="408" y="84" width="40" height="344" rx="20"/></clipPath>
+  <rect x="408" y="206" width="40" height="222" fill="#e8eaed" clip-path="url(#barra)"/>
+  <path d="M400 206H456" stroke="#7cc04a" stroke-width="8" stroke-linecap="round"/>
+  <!-- cavalo geométrico -->
+  <g transform="translate(34 40) scale(4.3)">
+    <path d="M30 80L40 70L50 58L44 54L34 58L24 62L18 56L20 50L34 32L46 22L48 10L56 20L70 34L77 56L74 80Z" fill="#e8eaed" stroke="#e8eaed" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M56 24L66 40M60 44L68 58" stroke="#1b1d20" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="40" cy="36" r="3.4" fill="#1b1d20"/>
+    <path d="M22 54L26 56" stroke="#1b1d20" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="20" y="80" width="60" height="9" rx="4.5" fill="#7cc04a"/>
+  </g>
+</svg>

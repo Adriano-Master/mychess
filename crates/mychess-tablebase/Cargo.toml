@@ -1,0 +1,37 @@
+[package]
+name = "mychess-tablebase"
+description = "Endgame tablebases for MyChess: local Syzygy files, the Lichess online tablebase, per-move results and training positions."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+# Exposes `mychess_tablebase::testing` (stub probes for tests). For tests only
+# (also used by the `mychess-app` tests through `[dev-dependencies]`).
+testing = []
+
+[dependencies]
+mychess-core.workspace = true
+# The HTTP client (https only, bounded bodies, request gate): spec m8-8, D2550.
+mychess-online.workspace = true
+shakmaty.workspace = true
+shakmaty-syzygy.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+# Self dev-dependency: turns the `testing` feature on for `cargo test`.
+mychess-tablebase = { workspace = true, features = ["testing"] }
+mychess-online = { workspace = true, features = ["testing"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "time", "test-util"] }
+tempfile.workspace = true
+proptest.workspace = true
+pretty_assertions.workspace = true
+
+[lints]
+workspace = true

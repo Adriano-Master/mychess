@@ -1,0 +1,11 @@
+pane-board = Board
+pane-info = Game information
+pane-notation = Notation
+pane-comment = Comment
+notation-placeholder = The move list will appear here.
+info-players = { $white } - { $black }
+info-event-line = { $event }, { $site }, { $date }, { $round }
+info-eco = ECO { $eco }
+info-result = { $result }
+pane-close = Close panel
+tab-detach = Detach to a new panel

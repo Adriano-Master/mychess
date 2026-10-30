@@ -1,0 +1,85 @@
+[Event "M6-2b 1 scholar's mate"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "1"]
+[White "Alpha"]
+[Black "Beta"]
+[Result "1-0"]
+
+1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7# 1-0
+
+[Event "M6-2b 2 fool's mate"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "2"]
+[White "Gamma"]
+[Black "Delta"]
+[Result "0-1"]
+
+1. f3 e5 2. g4 Qh4# 0-1
+
+[Event "M6-2b 3 knight fork"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "3"]
+[White "Epsilon"]
+[Black "Zeta"]
+[Result "1-0"]
+[SetUp "1"]
+[FEN "r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1"]
+
+1. Nc7+ Kd7 2. Nxa8 1-0
+
+[Event "M6-2b 4 absolute pin"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "4"]
+[White "Eta"]
+[Black "Theta"]
+[Result "1/2-1/2"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 d6 4. O-O Bd7 5. Re1 Nf6 1/2-1/2
+
+[Event "M6-2b 5 Legal's mate"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "5"]
+[White "Iota"]
+[Black "Kappa"]
+[Result "1-0"]
+
+1. e4 e5 2. Nf3 d6 3. Bc4 Bg4 4. Nc3 g6 5. Nxe5 Bxd1 6. Bxf7+ Ke7 7. Nd5# 1-0
+
+[Event "M6-2b 6 quiet draw"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "6"]
+[White "Lambda"]
+[Black "Mu"]
+[Result "1/2-1/2"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 1/2-1/2
+
+[Event "M6-2b 7 queen promotion"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "7"]
+[White "Nu"]
+[Black "Xi"]
+[Result "1-0"]
+[SetUp "1"]
+[FEN "7k/P7/8/8/8/8/8/K7 w - - 0 1"]
+
+1. a8=Q+ Kg7 1-0
+
+[Event "M6-2b 8 underpromotion"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "8"]
+[White "Omicron"]
+[Black "Pi"]
+[Result "1/2-1/2"]
+[SetUp "1"]
+[FEN "7k/P7/8/8/8/8/8/K7 w - - 0 1"]
+
+1. a8=N Kg7 1/2-1/2

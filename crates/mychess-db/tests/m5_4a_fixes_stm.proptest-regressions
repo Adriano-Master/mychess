@@ -1,0 +1,8 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 4214a19da3ed2bca31294ba666dd7dea4cccda9cfd4262831784575d62ed238f # shrinks to key = "", san = "{", nag = "", color = "\\\r[", c = ""
+cc f5e074ba4b18c9974a9fdd4e13b3290d7f82ca2417e5386c4443b14cb62b4277 # shrinks to ops = [(0, SetNag { san: "é", nag: Some(Other("\\\r[")) })]

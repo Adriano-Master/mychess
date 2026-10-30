@@ -1,0 +1,35 @@
+# Rastreador de peças (spec M6-4, D3392, M6-4d). Scid: tcl/tools/ptracker.tcl.
+action-toggle-piece-tracker-pane = Mostrar ou ocultar o painel do rastreador de peças
+menu-stats-piece-tracker = Rastreador de peças
+pane-piece-tracker = Rastreador de peças
+pane-close-piece-tracker = Fechar o painel do rastreador de peças
+
+ptracker-notice-failed = O rastreador não conseguiu contar as partidas.
+ptracker-notice-not-a-piece = Essa casa não começa com uma peça.
+ptracker-color-black = Preto
+ptracker-color-red = Vermelho
+ptracker-color-yellow = Amarelo
+ptracker-color-cyan = Ciano
+ptracker-color-blue = Azul
+ptracker-color-xblack = Preto (invertido)
+ptracker-color-xred = Vermelho (invertido)
+ptracker-color-xyellow = Amarelo (invertido)
+ptracker-color-xcyan = Ciano (invertido)
+ptracker-color-xblue = Azul (invertido)
+ptracker-pick-hint = Botão esquerdo: uma peça. Botão direito: também as irmãs. Duplo clique: atualizar.
+ptracker-hover = { $square }: { $count } ({ $percent }%)  { $position }/64
+ptracker-stat = Estatística:
+ptracker-mode-games = % de partidas com lance para a casa
+ptracker-mode-time = % de tempo em cada casa
+ptracker-moves = Lances:
+ptracker-moves-to = até
+ptracker-color = Cor:
+ptracker-update = Atualizar
+ptracker-stop = Parar
+ptracker-no-base = Nenhuma base está aberta.
+ptracker-nothing-yet = Use Atualizar para contar.
+ptracker-empty-filter = O filtro está vazio.
+ptracker-counted = { $used } de { $games } partidas seguidas.
+ptracker-skipped = { $n } partidas ficaram de fora (posição inicial própria, curtas demais ou ilegíveis).
+ptracker-interrupted = Interrompido: as contagens são parciais.
+ptracker-ranking = Casas por contagem

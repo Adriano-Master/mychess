@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 01: lente sobre o peão</title>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- lente: o foco da análise -->
+  <circle cx="224" cy="224" r="136" fill="#25282c"/>
+  <!-- peão: a peça que se estuda -->
+  <g transform="translate(109 107) scale(2.3)" fill="#e8eaed">
+    <circle cx="50" cy="28" r="11"/>
+    <rect x="36" y="42" width="28" height="6" rx="3"/>
+    <path d="M40 48C40 62 34 68 30 78H70C66 68 60 62 60 48Z"/>
+    <rect x="26" y="78" width="48" height="8" rx="4"/>
+  </g>
+  <!-- aro e cabo -->
+  <circle cx="224" cy="224" r="136" fill="none" stroke="#7cc04a" stroke-width="30"/>
+  <path d="M326 326L418 418" stroke="#e8eaed" stroke-width="46" stroke-linecap="round"/>
+  <path d="M326 326L350 350" stroke="#7cc04a" stroke-width="46" stroke-linecap="round"/>
+  <!-- brilho do vidro -->
+  <path d="M130 190A108 108 0 0 1 190 130" fill="none" stroke="#e8eaed" stroke-opacity=".55" stroke-width="12" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,31 @@
+format = "mychess-pattern"
+version = 1
+name = "Cravada absoluta (brancas)"
+description = "Uma torre, bispo ou dama branca crava uma peça preta contra o rei preto."
+
+[scope]
+min_move = 1
+max_move = 999
+hold = 1
+end_only = false
+ignore_colors = false
+
+[root]
+kind = "relation"
+relation = "pins"
+when = "any"
+new_this_move = false
+min_targets = 2
+
+[root.actor]
+side = "white"
+roles = ["bishop", "rook", "queen"]
+region = "anywhere"
+
+[root.target]
+roles = ["knight", "bishop", "rook", "queen", "pawn"]
+region = "anywhere"
+
+[root.behind]
+roles = ["king"]
+region = "anywhere"

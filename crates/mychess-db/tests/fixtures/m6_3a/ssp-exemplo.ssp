@@ -1,0 +1,25 @@
+# Cabeçalho: tudo isto é comentário
+@PLAYER "., -_*"
+%Prefix "GM " ""
+%Suffix " " ""
+
+Almeida, Beatriz Costa #WGM BRA [2400] 1990.05.17 w
+  %Bio FIDEID 9000001
+  %Bio Campeã brasileira em 2015
+  %Elo 2013:2300,2301,2305,2310,2315,2320,2325,2330,2335,2340,2345,2350 2001:2200,2210,2220,2230
+  = Almeida, B C
+  = Almeida, Beatriz
+Almeida, Bruno #- BRA [2100*] 1900.??.??--1970.04.?? i
+  = Almeida, B
+Braga, Carlos Eduardo #IM POR/BRA [2450] 1975.01.02
+  = Braga, Carlos
+@SITE "., -_()"
+%Suffix "(Brazil)" "BRA"
+Sao Paulo BRA
+  = S. Paulo BRA
+@EVENT ",. -_"
+%Infix "-ch " " Ch "
+Brasileiro Ch
+@ROUND ""
+1
+  = (01)

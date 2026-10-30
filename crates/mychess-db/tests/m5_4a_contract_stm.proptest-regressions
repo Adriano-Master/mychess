@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 33b15fc5088d4a151502ba7557209fcb84968079081bc01c82e466889dcd297f # shrinks to mask = TreeMask { slots: [Some(Slot { key: Opaque("\r\n0"), position: MaskPosition { moves: [], comment: "{" } })], index: {Opaque("\r\n0"): 0} }

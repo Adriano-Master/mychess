@@ -1,0 +1,23 @@
+---
+source: crates/mychess-pgn/tests/pgn_write.rs
+expression: "render(&opera_game(), &WriteOptions::default())"
+---
+[Event "Paris Opera"]
+[Site "Paris FRA"]
+[Date "1858.??.??"]
+[Round "?"]
+[White "Morphy, Paul"]
+[Black "Duke of Brunswick and Count Isouard"]
+[Result "1-0"]
+[WhiteElo "2690"]
+[ECO "C41"]
+[Annotator "Test \"suite\""]
+
+{The famous Opera Box game, played at a performance of Norma.}
+1. e4 e5 2. Nf3 d6 $6 {The Philidor Defence. [%clk 0:58:00]} ({more usual}
+2... Nc6 3. Bb5 $14) 3. d4 Bg4 (3... Nf6 4. Nc3 Be7) 4. dxe5 Bxf3 $2 5. Qxf3
+dxe5 6. Bc4 $1 {Threatening mate on f7 (see below)} 6... Nf6 7. Qb3 $3 $7 Qe7
+8. Nc3 c6 9. Bg5 b5 {Black has no good defence anyway; a very long comment
+follows to exercise the line wrapping of the writer at the configured width and
+keep going for a while.} 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7
+Rxd7 14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ $3 Nxb8 17. Rd8# 1-0

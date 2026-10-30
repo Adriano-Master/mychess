@@ -1,0 +1,42 @@
+[package]
+name = "mychess-eboard"
+description = "Electronic chessboards for MyChess: Novag Citrine (serial) and DGT-style input engines."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+# Exposes `mychess_eboard::testing` (fake serial port, fake input engine) and
+# builds the `mychess-fake-inputengine` binary. For tests only.
+testing = ["tokio/io-std"]
+
+[dependencies]
+mychess-core.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+# `process` (spawn the driver), `io-util` (line reading), `sync` (channels),
+# `time` (deadlines), `rt` (tasks), `macros` (`select!` in the session loop).
+tokio = { workspace = true, features = ["process", "io-util", "sync", "time", "rt", "macros"] }
+# ADR 0014: no `libudev`, so no system library on Linux.
+serialport.workspace = true
+
+[dev-dependencies]
+# Self dev-dependency: turns `testing` on for `cargo test` (the process test
+# finds `CARGO_BIN_EXE_mychess-fake-inputengine`).
+mychess-eboard = { workspace = true, features = ["testing"] }
+tokio = { workspace = true, features = ["rt-multi-thread", "test-util"] }
+proptest.workspace = true
+pretty_assertions.workspace = true
+
+[[bin]]
+name = "mychess-fake-inputengine"
+path = "src/bin/mychess-fake-inputengine.rs"
+required-features = ["testing"]
+test = false
+doc = false
+
+[lints]
+workspace = true

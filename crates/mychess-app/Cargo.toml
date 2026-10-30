@@ -1,0 +1,62 @@
+[package]
+name = "mychess-app"
+description = "Framework-independent application layer of MyChess (state, use cases, effects)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+mychess-core.workspace = true
+mychess-pgn.workspace = true
+mychess-db.workspace = true
+mychess-engine.workspace = true
+# Polyglot books: the `BookProbe` of the annotation and the book of the game
+# against an engine (M8-1, D1234).
+mychess-book.workspace = true
+# Lichess client (Board API): the online game (M8-3b). The GUI never sees it.
+mychess-online.workspace = true
+# Endgame tablebases (Syzygy and the Lichess online one): M8-8, ADR 0012.
+mychess-tablebase.workspace = true
+# Electronic boards (Novag serial, DGT input engine): M8-10, ADR 0014.
+mychess-eboard.workspace = true
+serde.workspace = true
+toml.workspace = true
+directories.workspace = true
+# Atomic writes of PGN files and preferences (temporary file in the target
+# directory, then rename).
+tempfile.workspace = true
+thiserror.workspace = true
+# Decodes the OGG Vorbis and MP3 files of the sound packs (M8-11b, ADR 0015).
+symphonia.workspace = true
+# Logs the cause of a failed game read at the border (`perform`).
+tracing.workspace = true
+# Decompression of `.pgn.gz` here (not in the PGN reader) so the size cap
+# applies to the decompressed stream. Already in the workspace (mychess-pgn).
+flate2.workspace = true
+# Rasterizes the SVG of the board to a PNG (M7-4, D3723, ADR 0016). Pure Rust,
+# no system fonts: the font comes from the host.
+resvg.workspace = true
+# `time`: the autoplay timer of `perform`; `rt`: `spawn_blocking` for file I/O;
+# `sync`: the channel that carries the engine events (`EngineHub`).
+tokio = { workspace = true, features = ["time", "rt", "sync"] }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt", "macros", "test-util"] }
+mychess-core = { workspace = true, features = ["test-support"] }
+# The scripted in-memory engine for the engine flow tests.
+mychess-engine = { workspace = true, features = ["testing"] }
+# The local fake Lichess server for the online flow tests (no real network).
+mychess-online = { workspace = true, features = ["testing"] }
+# The stub sources of the tablebase flow tests.
+mychess-tablebase = { workspace = true, features = ["testing"] }
+# The fake serial port and the fake input engine of the board flow tests.
+mychess-eboard = { workspace = true, features = ["testing"] }
+# Plays the browser in the OAuth login tests (the callback on loopback).
+reqwest.workspace = true
+proptest.workspace = true
+rstest.workspace = true
+
+[lints]
+workspace = true

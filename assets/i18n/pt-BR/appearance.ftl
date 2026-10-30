@@ -1,0 +1,12 @@
+appearance-title = Aparência
+appearance-tab-theme = Tema
+appearance-tab-board = Tabuleiro
+appearance-tab-pieces = Peças
+appearance-tab-players = Jogadores
+appearance-tab-changed = Alterado, ainda não aplicado
+appearance-section-mode = Modo
+appearance-apply = Aplicar
+appearance-footer-hint = As escolhas só valem quando você clica em Aplicar.
+appearance-sample-white = Jogador das brancas
+appearance-sample-black = Jogador das pretas
+appearance-strips-hidden = As faixas de jogador estão ocultas.

@@ -1,0 +1,8 @@
+# Compilador fixado: todos (máquinas de desenvolvimento e CI nas três
+# plataformas) usam a mesma versão, então os lints do clippy não mudam de
+# surpresa. Para atualizar: altere aqui e em `rust-version` no Cargo.toml,
+# rode `cargo xtask ci` e corrija os novos avisos no mesmo commit.
+[toolchain]
+channel = "1.99.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"

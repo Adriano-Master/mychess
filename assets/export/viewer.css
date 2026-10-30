@@ -1,0 +1,93 @@
+/*
+ * MyChess HTML viewer: style sheet (spec M7-4, slice d; ADR 0016).
+ * Written for MyChess, GPL-3.0-or-later (docs/adr/0004-licenca.md).
+ */
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #666a70;
+  --accent: #2b6cb0;
+  --line: #d4d7dc;
+  --light: #f0d9b5;
+  --dark: #b58863;
+  --hl: rgba(155, 199, 0, 0.45);
+  --sel: #dbeafe;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1d21;
+    --fg: #e6e7ea;
+    --muted: #9aa0a8;
+    --accent: #7fb2f0;
+    --line: #3a3d44;
+    --sel: #274a73;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: "Noto Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  background: var(--bg);
+  color: var(--fg);
+}
+a { color: var(--accent); }
+nav.volumes { margin-bottom: 10px; font-size: 13px; }
+.layout { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+.left { flex: 0 1 460px; min-width: 260px; }
+.side { flex: 1 1 320px; min-width: 260px; }
+.board { display: block; width: 100%; max-width: 460px; height: auto; }
+.board .sq.l { fill: var(--light); }
+.board .sq.d { fill: var(--dark); }
+.board .hl { fill: var(--hl); }
+.board .co { font-size: 12px; fill: var(--muted); font-family: "Noto Sans", sans-serif; }
+.controls { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.controls button {
+  min-width: 40px;
+  padding: 6px 10px;
+  font: inherit;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.controls button:hover, .controls button:focus-visible { border-color: var(--accent); }
+.picker {
+  width: 100%;
+  padding: 6px;
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.heading { margin-top: 10px; font-size: 18px; font-weight: 700; }
+.details { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+.moves {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.moves .mv { cursor: pointer; padding: 1px 2px; border-radius: 3px; font-weight: 600; }
+.moves .mv:hover { background: var(--sel); }
+.moves .mv.sel { background: var(--sel); outline: 1px solid var(--accent); }
+.moves .var {
+  margin: 2px 0 2px 14px;
+  padding-left: 8px;
+  border-left: 2px solid var(--line);
+}
+.moves .var .mv { font-weight: 400; }
+.moves .c { color: var(--muted); font-style: italic; }
+.moves .result { display: inline-block; margin-left: 6px; font-weight: 700; }
+noscript { display: block; margin-top: 16px; }
+@media print {
+  .controls, .picker, nav.volumes { display: none; }
+  .moves { max-height: none; overflow: visible; border: 0; }
+  body { background: #ffffff; color: #000000; }
+}

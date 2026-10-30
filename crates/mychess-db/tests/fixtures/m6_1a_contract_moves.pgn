@@ -1,0 +1,118 @@
+[Event "moves 1 castling"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "1"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 *
+
+[Event "moves 2 queen pawn"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "2"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. d4 d5 2. c4 e6 *
+
+[Event "moves 3 fool's mate"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "3"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. f3 e5 2. g4 Qh4# 0-1
+
+[Event "moves 4 captures"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "4"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5 *
+
+[Event "moves 5 promotion with check"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "5"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+[SetUp "1"]
+[FEN "7k/P7/8/8/8/8/8/K7 w - - 0 1"]
+
+1. a8=Q+ Kg7 *
+
+[Event "moves 6 black starts"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "6"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"]
+
+1... e5 2. Nf3 *
+
+[Event "moves 7 variations"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "7"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. e4 e5 (1... c5 2. Nf3 d6 (2... Nc6 3. d4)) 2. Nf3 Nc6 *
+
+[Event "moves 8 empty"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "8"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+*
+
+[Event "moves 9 rook disambiguation"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "9"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4k3/8/8/8/8/8/4K3/R6R w - - 0 1"]
+
+1. Rad1 Kd7 *
+
+[Event "moves 10 knight disambiguation"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "10"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4k3/8/8/8/8/N7/8/N3K3 w - - 0 1"]
+
+1. N3c2 Kd7 2. Nb3 *
+
+[Event "moves 11 ends at the first move"]
+[Site "?"]
+[Date "2026.10.27"]
+[Round "11"]
+[White "W"]
+[Black "B"]
+[Result "*"]
+
+1. e4 *
+

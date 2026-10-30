@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>MyChess 03: torre e curva de avaliação</title>
+  <rect width="512" height="512" rx="112" fill="#1b1d20"/>
+  <!-- torre: a solidez da posição -->
+  <g transform="translate(46 40) scale(4.2)" fill="#e8eaed">
+    <rect x="28" y="20" width="12" height="12" rx="1.5"/>
+    <rect x="44" y="20" width="12" height="12" rx="1.5"/>
+    <rect x="60" y="20" width="12" height="12" rx="1.5"/>
+    <rect x="28" y="30" width="44" height="10" rx="2"/>
+    <path d="M34 40V66L28 74V84H72V74L66 66V40Z"/>
+    <rect x="24" y="82" width="52" height="8" rx="4"/>
+  </g>
+  <!-- eixo do empate -->
+  <path d="M70 288H442" stroke="#1b1d20" stroke-opacity=".35" stroke-width="6" stroke-dasharray="4 14" stroke-linecap="round"/>
+  <!-- curva de avaliação atravessando a torre -->
+  <path d="M70 360L142 330L204 346L262 262L324 280L382 190L442 132" fill="none" stroke="#1b1d20" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 360L142 330L204 346L262 262L324 280L382 190L442 132" fill="none" stroke="#7cc04a" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="442" cy="132" r="26" fill="#7cc04a" stroke="#1b1d20" stroke-width="10"/>
+</svg>

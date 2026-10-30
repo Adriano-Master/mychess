@@ -1,0 +1,59 @@
+# Build (em qualquer nível: agentes já deixaram target/ dentro de crates/)
+target/
+
+# Código de referência do Scid vs PC: somente consulta local, não versionado
+# (73 MB, e parte dos dados exige autorização dos autores para redistribuir).
+# Ver docs/referencia-scid.md.
+/reference/
+
+# Configuração e memória pessoais do Claude Code (a memória "project" dos
+# agentes, em .claude/agent-memory/, é compartilhada e versionada).
+/.claude/settings.local.json
+/.claude/agent-memory-local/
+CLAUDE.local.md
+
+# Cobertura, profiling e fuzzing
+*.profraw
+*.profdata
+lcov.info
+/coverage/
+/fuzz/artifacts/
+/fuzz/corpus/
+perf.data*
+flamegraph.svg
+
+# Snapshots pendentes do insta (revisar com `cargo insta review`)
+*.snap.new
+*.pending-snap
+
+# Editores e sistemas operacionais
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Empacotamento (packaging/build-dist.sh): preparação, logs e restos de build.
+# Os pacotes finais em dist/ SÃO versionados (não ignore dist/).
+/packaging/work/
+*.log
+/target-*/
+# Cópias soltas das bases de dados e PGNs de exemplo fora dos pacotes
+# (as bases oficiais ficam só dentro dos pacotes em dist/).
+/MyChess/
+/chess base/
+/Data Base/
+/*.si4
+/*.sg4
+/*.sn4
+/*.stm
+
+# Diário de trabalho do projeto (especificações detalhadas e roteiro interno):
+# ficam só na cópia local e no branch local `notas-de-projeto`. O plano
+# público é o ROADMAP.md.
+/docs/specs/
+/docs/roteiro.md
+
+# Estado local do Claude Code
+/.claude/scheduled_tasks.lock

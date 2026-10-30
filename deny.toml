@@ -1,0 +1,77 @@
+# cargo-deny: licenças, vulnerabilidades, crates banidas e origens.
+# Rode `cargo deny check` (ou `cargo xtask deny`). Documentação:
+# https://embarkstudios.github.io/cargo-deny/
+
+[graph]
+# Avalia as dependências de todas as plataformas suportadas, não só da máquina atual.
+targets = [
+    "x86_64-unknown-linux-gnu",
+    "aarch64-unknown-linux-gnu",
+    "x86_64-pc-windows-msvc",
+    "aarch64-pc-windows-msvc",
+    "x86_64-apple-darwin",
+    "aarch64-apple-darwin",
+]
+all-features = true
+
+[advisories]
+# Vulnerabilidades (RustSec) sempre falham. "Sem manutenção" só falha para
+# dependências diretas; nas transitivas o aviso é tratado na atualização.
+unmaintained = "workspace"
+yanked = "deny"
+ignore = []
+
+[licenses]
+# O MyChess é GPL-3.0-or-later (docs/adr/0004-licenca.md): toda dependência
+# precisa ter licença compatível com a GPLv3. Antes de incluir uma licença
+# nova nesta lista, confirme a compatibilidade em
+# https://www.gnu.org/licenses/license-list.html
+allow = [
+    "0BSD",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BSL-1.0",
+    "CC0-1.0",
+    "GPL-3.0-or-later",
+    "ISC",
+    "MIT",
+    "MPL-2.0",
+    "NCSA",
+    "Unicode-3.0",
+    "Unlicense",
+    "Zlib",
+]
+confidence-threshold = 0.9
+# `webpki-root-certs` (dados da lista de CAs do Mozilla, via rustls-platform-verifier,
+# spec m8-3): licenca de dados permissiva, sem copyleft. Aceita so para ele.
+exceptions = [
+    { crate = "webpki-root-certs", allow = ["CDLA-Permissive-2.0"] },
+]
+
+[licenses.private]
+# Os crates do workspace não são publicados (publish = false).
+ignore = true
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true
+highlight = "all"
+deny = [
+    # TLS em Rust puro (rustls) evita depender da OpenSSL do sistema no Windows e no macOS.
+    { crate = "openssl-sys", reason = "use rustls" },
+    { crate = "native-tls", reason = "use rustls" },
+    # Provedor cripto do rustls: `ring` (Apache-2.0 AND ISC). O `aws-lc-rs` padrao do
+    # reqwest traz `aws-lc-sys` com a licenca OpenSSL, incompativel com a GPLv3 (spec m8-3, P2).
+    { crate = "aws-lc-sys", reason = "OpenSSL license is GPLv3-incompatible; rustls uses ring" },
+]
+skip = []
+skip-tree = []
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

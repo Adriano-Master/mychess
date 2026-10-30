@@ -1,0 +1,21 @@
+MyChess/Engine
+==============
+
+O pacote Linux traz o Stockfish 10 na subpasta stockfish/ (veja o LEIA-ME.txt
+de la). O pacote Windows nao traz nenhuma engine: adicione uma como abaixo.
+
+Como adicionar o Stockfish (ou outra engine UCI):
+1. Baixe o Stockfish do site oficial, https://stockfishchess.org/download/
+   (escolha a versao do seu sistema e processador).
+2. Extraia numa subpasta desta pasta, por exemplo:
+     MyChess/Engine/stockfish/stockfish-windows-x86-64-avx2.exe
+     MyChess/Engine/stockfish/stockfish-ubuntu-x86-64-avx2
+   O MyChess procura engines conhecidas aqui e em uma subpasta de nivel.
+3. Reabra o MyChess: o nome do executavel deve comecar com "stockfish" (as
+   engines conhecidas sao detectadas pelo nome). A engine encontrada e
+   oferecida na lista de engines, onde voce a marca para uso. Se nao
+   aparecer, adicione-a manualmente na janela de engines, apontando para o
+   executavel (no Linux ele precisa de permissao de execucao: chmod +x).
+
+Qualquer engine que fale o protocolo UCI (ou XBoard) pode ser usada.
+Respeite a licenca de cada engine ao copia-la ou redistribui-la.

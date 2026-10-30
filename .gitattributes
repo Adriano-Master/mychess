@@ -1,0 +1,42 @@
+# Finais de linha normalizados (LF) em todas as plataformas.
+* text=auto eol=lf
+
+*.rs    text eol=lf diff=rust
+*.toml  text eol=lf
+*.md    text eol=lf diff=markdown
+*.ftl   text eol=lf
+*.svg   text eol=lf
+
+# Scripts do Windows precisam de CRLF.
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# Fixtures de teste preservam os bytes exatos (CRLF, Latin-1, BOM etc.),
+# pois os parsers precisam lidar com arquivos do mundo real.
+**/tests/fixtures/** -text
+
+# Binários: bancos Scid, livros Polyglot, tablebases, imagens, fontes, sons.
+*.si4   binary
+*.sn4   binary
+*.sg4   binary
+*.stc   binary
+*.bin   binary
+*.rtbw  binary
+*.rtbz  binary
+*.png   binary
+*.gif   binary
+*.ico   binary
+*.icns  binary
+*.ttf   binary
+*.otf   binary
+*.woff2 binary
+*.wav   binary
+*.ogg   binary
+
+# Pacotes de sons (OGG/MP3/WAV) e seus textos: bytes exatos, sem normalizar finais de linha.
+assets/sounds/** -text
+
+# Pacotes de distribuição (dist/): binários, sem normalização nem diff.
+dist/*.zip -text -diff
+dist/*.tar.gz -text -diff

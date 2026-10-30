@@ -1,0 +1,1 @@
+{"type":"gameFinish","game":{"id":"abcd1234","fullId":"abcd1234wxyz","color":"black","winner":"white","status":{"id":31,"name":"resign"},"speed":"rapid","perf":"rapid","rated":false,"opponent":{"id":"alice","username":"alice","rating":1800}}}

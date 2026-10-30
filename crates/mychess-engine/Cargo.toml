@@ -1,0 +1,45 @@
+[package]
+name = "mychess-engine"
+description = "Chess engine integration for MyChess: UCI and XBoard protocols, analysis sessions."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = []
+# Exposes `mychess_engine::testing` (scripted fake engine, hand-driven peer) and
+# builds the `mychess-fake-engine` binary. For tests only (also used by the
+# `mychess-app` tests through `[dev-dependencies]`).
+testing = ["tokio/io-std"]
+
+[dependencies]
+mychess-core.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+# Features (spec m4-1, D403): `process` (spawn the engine), `io-util` (line
+# framing over the pipes), `sync` (channels), `time` (deadlines), `rt` (tasks),
+# `macros` (`select!` in the session loop, the only way to wait on the wire,
+# the command channel and a deadline at once without extra crates).
+# (`io-std`, for the fake-engine binary, comes with the `testing` feature.)
+tokio = { workspace = true, features = ["process", "io-util", "sync", "time", "rt", "macros"] }
+
+[dev-dependencies]
+# Self dev-dependency: turns the `testing` feature on for `cargo test`, so the
+# integration tests find the `mychess-fake-engine` binary (`CARGO_BIN_EXE_*`).
+mychess-engine = { workspace = true, features = ["testing"] }
+tokio = { workspace = true, features = ["rt-multi-thread", "test-util"] }
+proptest.workspace = true
+tempfile.workspace = true
+pretty_assertions.workspace = true
+
+[[bin]]
+name = "mychess-fake-engine"
+path = "src/bin/mychess-fake-engine.rs"
+required-features = ["testing"]
+test = false
+doc = false
+
+[lints]
+workspace = true

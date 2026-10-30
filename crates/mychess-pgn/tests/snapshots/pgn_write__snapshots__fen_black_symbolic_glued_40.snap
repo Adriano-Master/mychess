@@ -1,0 +1,21 @@
+---
+source: crates/mychess-pgn/tests/pgn_write.rs
+expression: "render(&g, &o)"
+---
+[Event "Endgame \\ study"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "A"]
+[Black "B"]
+[Result "1/2-1/2"]
+[BlackDWZ "2100"]
+[EventDate "2001.05.06"]
+[ScidFlags "WB"]
+[SetUp "1"]
+[FEN "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"]
+
+{Start comment}
+1...e5! += (1...c5 $142) 2.Nf3?! $7 {the
+usual} 2...Nc6 {[%csl Gd4] kept} 3.Bb5
+1/2-1/2

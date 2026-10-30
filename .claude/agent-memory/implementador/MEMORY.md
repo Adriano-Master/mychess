@@ -1,0 +1,34 @@
+- [PGN reader lessons](pgn-reader-lessons.md) — chardetng thresholds, strict Game tree vs lenient castling, chunker/lexer agreement
+- [Notation widget lessons](notation-widget-lessons.md) — simulator pointer quirks, NAG glyph fonts, no on-blur in text_editor, shell glue pattern
+- [GUI/app integration lessons](gui-app-integration-lessons.md) — notice lifetime, interim dialog answers, non_exhaustive, timers, HOME vs rustup
+- [GUI dialogs lessons](gui-dialogs-lessons.md) — tokio for perform in tests, mouse_area release, move-entry autoplay, focus trap
+- [Theme/icons lessons](gui-theme-icons-lessons.md) — svg color is a pixel filter, button ids via container, responsive Shrink, Theme::custom eq
+- [Strips/column lessons](gui-strips-lessons.md) — compute() start, iced_test selectors, shared target collisions, text width estimate
+- [Notation table lessons](notation-table-lessons.md) — snapshots to PNG, per-part paragraphs for the pill, lazy rows, hook #[path], clippy by-value
+- [SI4 write lessons](si4-write-lessons.md) — parity oracle (6 bases), stale START fields, chess960_start(518), Windows lock caveat
+- [SI4 journal/compact lessons](si4-journal-lessons.md) — closure drops handles, FailPoint no-cleanup, reader never deletes tmp
+- [App bases lessons](app-bases-lessons.md) — rule65 scans state/, Message PartialEq via Arc ptr, M2 chooser opt-in, Scid Length
+- [Drag/copy lessons](gui-drag-copy-lessons.md) — button vs mouse_area capture, event order, test locale, Esc and stale drag
+- [Engine UCI lessons](engine-uci-lessons.md) — duplex split/EOF, feature testing self-dev-dep, lints, próxima D livre
+- [Engine XBoard lessons](engine-xboard-lessons.md) — shutdown vs Quit race, coalescer merge de stat01, target dir absoluto
+- [Engine app-flow lessons](engine-app-flow-lessons.md) — PreferencesLoaded size limit, startup effect order, hub launcher seam, TARGET_DIR per call
+- [Annotate flow lessons](annotate-flow-lessons.md) — M4-6: harness de eventos sintéticos, fmt compartilhado, testes alheios quebrados, markExercise
+- [Analysis panel lessons](gui-analysis-lessons.md) — on_click stray messages, RunInfo for tests, Fluent leading blanks, menu-tools keys
+- [Eval bar GUI lessons](gui-evalbar-lessons.md) — BoardEvent exhaustive test match, literal-built structs, arrow click capture
+- [Eval bar/arrows lessons](gui-evalbar-lessons.md) — literal-built test structs, direct Program::update tests, foreign red tests
+- [Online client lessons](online-client-lessons.md) — ring vs aws-lc, keyring 4 API, socket tests vs tokio pause, concurrent xtask edits
+- [Tournament core lessons](tournament-core-lessons.md) — M8-2a: TOML u64 (toml 1.1 escreve invalido), placar das Brancas, perform em caixa, pool closed
+- [Tournament GUI lessons](tournament-gui-lessons.md) — M8-2b: torneio vivo em teste sem processo, testes antigos de menu/i18n, caches do tabuleiro
+- [Online GUI lessons](online-gui-lessons.md) — M8-3c: teste sem rede (dev-deps), predicado de premove no estado, BoardColumn literal, atalho K
+- [Mask app lessons](mask-app-lessons.md) — M5-4b: Rig via #[path], tempdir sem extensao ganha .stm, GoTo pergunta salvar, [tree_mask]
+- [Mask GUI lessons](mask-gui-lessons.md) — M5-4c: dropdown aw fora do simulador, find casa texto inteiro, i18n heuristicas, ActiveDialog novo
+- [File import lessons](file-import-lessons.md) — M3-8: job da lista p/ destino novo, FilesPicked, fmt apos scripts, clippy gui alheio
+- [Book panel redesign lessons](book-panel-redesign-lessons.md) — M5-6c: Id::from(String), tooltips invisible to tests, Row::wrap Fill, snapshot refresh
+- [Report close-out lessons](report-close-lessons.md) — M4-10 fecho: faixa D tambem em crates, Rig effects, disco por lote, ETA por ticks
+- [Advanced search lessons](advanced-search-lessons.md) — M6-1a: relative CARGO_TARGET_DIR trap, no >16 pieces from core, DFS pruning, concurrent agent files
+- [Spelling core lessons](spelling-core-lessons.md) — M6-3a: target dir env trap, rustfmt after scripts, Filter::new full, rating type numbers
+- [Player tools app lessons](player-tools-app-lessons.md) — M6-3b: ListJobKind exhaustive in GUI, [players] prefs taken, Refresh<K> reuse, hook vs scripted patches
+- [Player tools GUI lessons](player-tools-gui-lessons.md) — M6-3c: Simulator find sees behind modals, ftl placement, shared menu test lists
+- [EPD window app lessons](epd-window-app-lessons.md) — M7-5b: sort_cmp/strip da pgn, fixtures in-crate, sync do tabuleiro, Preferences em Box
+- [Opening report GUI lessons](opening-report-gui-lessons.md) — M7-2c: Key typed=None vacuo, TargetNotVisible, contar Action::Widget, camada+cache no sync
+- [Crash FailPoint lessons](crash-failpoint-lessons.md) — M7-1a2/M7-3a fixes: kill mode, stale sn4 frequencies, sink-triggered intrusion tests
